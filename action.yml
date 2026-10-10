@@ -1,0 +1,21 @@
+name: '1NFER Crypto Inference Connection Check'
+description: 'Check the public model catalogue and crypto funding availability without keys, signup or paid generation.'
+author: 'hesoyambusiness'
+branding:
+  icon: 'activity'
+  color: 'blue'
+outputs:
+  model-count:
+    description: 'Number of advertised exact model identifiers, not verified completions'
+    value: ${{ steps.check.outputs.model-count }}
+  funding-enabled:
+    description: 'Whether live payment terms enable new invoices'
+    value: ${{ steps.check.outputs.funding-enabled }}
+runs:
+  using: 'composite'
+  steps:
+    - id: check
+      shell: bash
+      env:
+        INFER_ACTION_PATH: ${{ github.action_path }}
+      run: python3 "$INFER_ACTION_PATH/probe.py"
