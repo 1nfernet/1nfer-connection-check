@@ -24,6 +24,6 @@ def main():
   with open(os.environ['GITHUB_OUTPUT'],'a') as f:
    for k,v in result.items():f.write(k+'='+v+'\n')
  if os.environ.get('GITHUB_STEP_SUMMARY'):
-  with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('## 1NFER connection check\nAdvertised models: '+result['model-count']+'. New crypto invoices enabled: '+result['funding-enabled']+'.\n\nGET-only, no key/signup/paid generation. Catalogue availability does not prove model completions or quality.\n\n[Inspectable integration guide](https://1nfer.net/guides/crypto-inference-agents.html?utm_source=github_action&utm_medium=ci&utm_campaign=connection_check) · [Scoped router setup](https://hesoyam.business/router)\n')
+  with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:f.write('## 1NFER connection check\nAdvertised models: '+result['model-count']+'. New crypto invoices enabled: '+result['funding-enabled']+'.\n\nGET-only, no key/signup/paid generation. Catalogue availability does not prove model completions or quality.\n\n[Inspectable integration guide](https://1nfer.net/guides/crypto-inference-agents.html?utm_source=github_action&utm_medium=ci&utm_campaign=connection_check) · [Scoped router setup](https://1nfer.net/guides/launch-your-service.html)\n')
  print(json.dumps(result));return 0
 if __name__=='__main__':raise SystemExit(main())
